@@ -208,7 +208,6 @@ namespace UnityEngine
     {
       return "(" + this.x + ", " + this.y + ")";
     }
-
     public string ToString(string format)
     {
       return "not implemented";
