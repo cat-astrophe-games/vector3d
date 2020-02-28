@@ -115,6 +115,15 @@ namespace UnityEngine
       //same as for the above conversion
       return new Vector3d(v.x, v.y, 0.0d);
     }
+    
+    public static implicit operator Vector2(Vector2d v)
+    {
+      return new Vector2((float)v.x, (float)v.y);
+    }
+    public static implicit operator Vector2d(Vector2 v)
+    {
+      return new Vector2d((double)v.x, (double)v.y);
+    }
 
     public static Vector2d operator +(Vector2d a, Vector2d b)
     {
