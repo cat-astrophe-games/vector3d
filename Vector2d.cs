@@ -5,7 +5,6 @@ namespace UnityEngine {
 		const double EPSILON_MAGNITUDE = 9.99999974737875E-06;		// ~= 1e-5
 		const double EPSILON_MAGNITUDE_SQR = EPSILON_MAGNITUDE*EPSILON_MAGNITUDE;
 
-		public const double kEpsilon = 1E-05d;		// Unused? Should be merged with EPSILON_MAGNITUDE?
         public double x;
         public double y;
 
