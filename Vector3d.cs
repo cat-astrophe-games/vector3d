@@ -6,7 +6,6 @@ namespace UnityEngine {
 		const double EPSILON_MAGNITUDE_SQR = EPSILON_MAGNITUDE*EPSILON_MAGNITUDE;
 		const double EPSILON_DOT_PRODUCT = 1.40129846432482E-45d;
 
-		public const double kEpsilon = 1E-05d;		// Unused? Should be merged with EPSILON_MAGNITUDE?
         public double x;
         public double y;
         public double z;
@@ -306,11 +305,14 @@ namespace UnityEngine {
             else
                 this = Vector3d.zero;
         }
-        // TODO : fix formatting
-        public override string ToString() {
-            return "(" + this.x + " - " + this.y + " - " + this.z + ")";
-        }
 
+        public override string ToString() {
+            return "(" + this.x + ", " + this.y + ", " + this.z + ")";
+        }
+        public string ToString(string format) {
+            return "not implemented";
+        }
+        
         public static double Dot(Vector3d lhs, Vector3d rhs) {
             return lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z;
         }
