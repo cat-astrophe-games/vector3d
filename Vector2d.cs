@@ -178,11 +178,11 @@ namespace UnityEngine
     }
     public static bool operator ==(Vector2 lhs, Vector2d rhs)
     {
-      return Vector2d.SqrMagnitude((Vector2d)lhs - rhs) < EPSILON_MAGNITUDE_SQR;
+      return Vector2d.SqrMagnitude(lhs - rhs) < EPSILON_MAGNITUDE_SQR;
     }
     public static bool operator ==(Vector2d lhs, Vector2 rhs)
     {
-      return Vector2d.SqrMagnitude(lhs - (Vector2d)rhs) < EPSILON_MAGNITUDE_SQR;
+      return Vector2d.SqrMagnitude(lhs - rhs) < EPSILON_MAGNITUDE_SQR;
     }
 
     public static bool operator !=(Vector2d lhs, Vector2d rhs)
