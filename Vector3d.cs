@@ -232,8 +232,24 @@ namespace UnityEngine
       // Implementation similar to Vector3
       return Vector3d.SqrMagnitude(lhs - rhs) < EPSILON_MAGNITUDE_SQR;
     }
+    public static bool operator ==(Vector3 lhs, Vector3d rhs)
+    {
+      return Vector3d.SqrMagnitude(lhs - rhs) < EPSILON_MAGNITUDE_SQR;
+    }
+    public static bool operator ==(Vector3d lhs, Vector3 rhs)
+    {
+      return Vector3d.SqrMagnitude(lhs - rhs) < EPSILON_MAGNITUDE_SQR;
+    }
 
     public static bool operator !=(Vector3d lhs, Vector3d rhs)
+    {
+      return !(lhs==rhs);
+    }
+    public static bool operator !=(Vector3 lhs, Vector3d rhs)
+    {
+      return !(lhs==rhs);
+    }
+    public static bool operator !=(Vector3d lhs, Vector3 rhs)
     {
       return !(lhs==rhs);
     }
