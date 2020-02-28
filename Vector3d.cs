@@ -172,6 +172,15 @@ namespace UnityEngine
       this.z = 0d;
     }
 
+    public static implicit operator Vector3(Vector3d v)
+    {
+      return new Vector3((float)v.x, (float)v.y, (float)v.z);
+    }
+    public static implicit operator Vector3d(Vector3 v)
+    {
+      return new Vector3d((double)v.x, (double)v.y, (double)v.z);
+    }
+
     public static Vector3d operator +(Vector3d a, Vector3d b)
     {
       return new Vector3d(a.x + b.x, a.y + b.y, a.z + b.z);
@@ -211,11 +220,6 @@ namespace UnityEngine
     public static bool operator !=(Vector3d lhs, Vector3d rhs)
     {
       return !(lhs==rhs);
-    }
-
-    public static explicit operator Vector3(Vector3d vector3d)
-    {
-      return new Vector3((float)vector3d.x, (float)vector3d.y, (float)vector3d.z);
     }
 
     public static Vector3d Lerp(Vector3d from, Vector3d to, double t)
