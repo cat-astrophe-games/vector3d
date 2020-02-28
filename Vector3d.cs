@@ -185,10 +185,26 @@ namespace UnityEngine
     {
       return new Vector3d(a.x + b.x, a.y + b.y, a.z + b.z);
     }
+    public static Vector3d operator +(Vector3 a, Vector3d b)
+    {
+      return new Vector3d((double)a.x + b.x, (double)a.y + b.y, (double)a.z + b.z);
+    }
+    public static Vector3d operator +(Vector3d a, Vector3 b)
+    {
+      return new Vector3d(a.x + (double)b.x, a.y + (double)b.y, a.z + (double)b.z);
+    }
 
     public static Vector3d operator -(Vector3d a, Vector3d b)
     {
       return new Vector3d(a.x - b.x, a.y - b.y, a.z - b.z);
+    }
+    public static Vector3d operator -(Vector3 a, Vector3d b)
+    {
+      return new Vector3d((double)a.x - b.x, (double)a.y - b.y, (double)a.z - b.z);
+    }
+    public static Vector3d operator -(Vector3d a, Vector3 b)
+    {
+      return new Vector3d(a.x - (double)b.x, a.y - (double)b.y, a.z - (double)b.z);
     }
 
     public static Vector3d operator -(Vector3d a)
