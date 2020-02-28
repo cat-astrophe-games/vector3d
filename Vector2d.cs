@@ -103,13 +103,16 @@ namespace UnityEngine
       this.y = y;
     }
 
-    public static implicit operator Vector2d(Vector3d v)
+    public static explicit operator Vector2d(Vector3d v)
     {
+      //I don't like the conversion pattern here. Maybe (v.x, v.z) would be better in Y-up orientation? Check how Unith 3D handles this conversion
+      //also changed conversion to explicit, as it has a potential data loss and/or unexpected result
       return new Vector2d(v.x, v.y);
     }
 
-    public static implicit operator Vector3d(Vector2d v)
+    public static explicit operator Vector3d(Vector2d v)
     {
+      //same as for the above conversion
       return new Vector3d(v.x, v.y, 0.0d);
     }
 
