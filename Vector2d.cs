@@ -129,10 +129,26 @@ namespace UnityEngine
     {
       return new Vector2d(a.x + b.x, a.y + b.y);
     }
+    public static Vector2d operator +(Vector2 a, Vector2d b)
+    {
+      return new Vector2d((double)a.x + b.x, (double)a.y + b.y);
+    }
+    public static Vector2d operator +(Vector2d a, Vector2 b)
+    {
+      return new Vector2d(a.x + (double)b.x, a.y + (double)b.y);
+    }
 
     public static Vector2d operator -(Vector2d a, Vector2d b)
     {
       return new Vector2d(a.x - b.x, a.y - b.y);
+    }
+    public static Vector2d operator -(Vector2 a, Vector2d b)
+    {
+      return new Vector2d((double)a.x - b.x, (double)a.y - b.y);
+    }
+    public static Vector2d operator -(Vector2d a, Vector2 b)
+    {
+      return new Vector2d(a.x - (double)b.x, a.y - (double)b.y);
     }
 
     public static Vector2d operator -(Vector2d a)
