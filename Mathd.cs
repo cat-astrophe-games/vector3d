@@ -144,14 +144,15 @@ namespace UnityEngine
       for (int index = 1; index < length; ++index)
       {
         if ((double)values[index] > (double)num)
-        }
+        {
           num = values[index];
         }
       }
       return num;
     }
 
-    public static int Max(int a, int b) {
+    public static int Max(int a, int b)
+    {
       if (a > b)
       {
         return a;
