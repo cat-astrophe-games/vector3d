@@ -103,24 +103,52 @@ namespace UnityEngine
       this.y = y;
     }
 
-    public static implicit operator Vector2d(Vector3d v)
+    public static explicit operator Vector2d(Vector3d v)
     {
+      //I don't like the conversion pattern here. Maybe (v.x, v.z) would be better in Y-up orientation? Check how Unith 3D handles this conversion
+      //also changed conversion to explicit, as it has a potential data loss and/or unexpected result
       return new Vector2d(v.x, v.y);
     }
 
-    public static implicit operator Vector3d(Vector2d v)
+    public static explicit operator Vector3d(Vector2d v)
     {
+      //same as for the above conversion
       return new Vector3d(v.x, v.y, 0.0d);
+    }
+
+    public static implicit operator Vector2(Vector2d v)
+    {
+      return new Vector2((float)v.x, (float)v.y);
+    }
+    public static implicit operator Vector2d(Vector2 v)
+    {
+      return new Vector2d((double)v.x, (double)v.y);
     }
 
     public static Vector2d operator +(Vector2d a, Vector2d b)
     {
       return new Vector2d(a.x + b.x, a.y + b.y);
     }
+    public static Vector2d operator +(Vector2 a, Vector2d b)
+    {
+      return new Vector2d((double)a.x + b.x, (double)a.y + b.y);
+    }
+    public static Vector2d operator +(Vector2d a, Vector2 b)
+    {
+      return new Vector2d(a.x + (double)b.x, a.y + (double)b.y);
+    }
 
     public static Vector2d operator -(Vector2d a, Vector2d b)
     {
       return new Vector2d(a.x - b.x, a.y - b.y);
+    }
+    public static Vector2d operator -(Vector2 a, Vector2d b)
+    {
+      return new Vector2d((double)a.x - b.x, (double)a.y - b.y);
+    }
+    public static Vector2d operator -(Vector2d a, Vector2 b)
+    {
+      return new Vector2d(a.x - (double)b.x, a.y - (double)b.y);
     }
 
     public static Vector2d operator -(Vector2d a)
@@ -148,8 +176,24 @@ namespace UnityEngine
       // Implementation similar to Vector3
       return Vector2d.SqrMagnitude(lhs - rhs) < EPSILON_MAGNITUDE_SQR;
     }
+    public static bool operator ==(Vector2 lhs, Vector2d rhs)
+    {
+      return Vector2d.SqrMagnitude(lhs - rhs) < EPSILON_MAGNITUDE_SQR;
+    }
+    public static bool operator ==(Vector2d lhs, Vector2 rhs)
+    {
+      return Vector2d.SqrMagnitude(lhs - rhs) < EPSILON_MAGNITUDE_SQR;
+    }
 
     public static bool operator !=(Vector2d lhs, Vector2d rhs)
+    {
+      return !(lhs==rhs);
+    }
+    public static bool operator !=(Vector2 lhs, Vector2d rhs)
+    {
+      return !(lhs==rhs);
+    }
+    public static bool operator !=(Vector2d lhs, Vector2 rhs)
     {
       return !(lhs==rhs);
     }

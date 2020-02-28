@@ -172,14 +172,39 @@ namespace UnityEngine
       this.z = 0d;
     }
 
+    public static implicit operator Vector3(Vector3d v)
+    {
+      return new Vector3((float)v.x, (float)v.y, (float)v.z);
+    }
+    public static implicit operator Vector3d(Vector3 v)
+    {
+      return new Vector3d((double)v.x, (double)v.y, (double)v.z);
+    }
+
     public static Vector3d operator +(Vector3d a, Vector3d b)
     {
       return new Vector3d(a.x + b.x, a.y + b.y, a.z + b.z);
+    }
+    public static Vector3d operator +(Vector3 a, Vector3d b)
+    {
+      return new Vector3d((double)a.x + b.x, (double)a.y + b.y, (double)a.z + b.z);
+    }
+    public static Vector3d operator +(Vector3d a, Vector3 b)
+    {
+      return new Vector3d(a.x + (double)b.x, a.y + (double)b.y, a.z + (double)b.z);
     }
 
     public static Vector3d operator -(Vector3d a, Vector3d b)
     {
       return new Vector3d(a.x - b.x, a.y - b.y, a.z - b.z);
+    }
+    public static Vector3d operator -(Vector3 a, Vector3d b)
+    {
+      return new Vector3d((double)a.x - b.x, (double)a.y - b.y, (double)a.z - b.z);
+    }
+    public static Vector3d operator -(Vector3d a, Vector3 b)
+    {
+      return new Vector3d(a.x - (double)b.x, a.y - (double)b.y, a.z - (double)b.z);
     }
 
     public static Vector3d operator -(Vector3d a)
@@ -207,15 +232,26 @@ namespace UnityEngine
       // Implementation similar to Vector3
       return Vector3d.SqrMagnitude(lhs - rhs) < EPSILON_MAGNITUDE_SQR;
     }
+    public static bool operator ==(Vector3 lhs, Vector3d rhs)
+    {
+      return Vector3d.SqrMagnitude(lhs - rhs) < EPSILON_MAGNITUDE_SQR;
+    }
+    public static bool operator ==(Vector3d lhs, Vector3 rhs)
+    {
+      return Vector3d.SqrMagnitude(lhs - rhs) < EPSILON_MAGNITUDE_SQR;
+    }
 
     public static bool operator !=(Vector3d lhs, Vector3d rhs)
     {
       return !(lhs==rhs);
     }
-
-    public static explicit operator Vector3(Vector3d vector3d)
+    public static bool operator !=(Vector3 lhs, Vector3d rhs)
     {
-      return new Vector3((float)vector3d.x, (float)vector3d.y, (float)vector3d.z);
+      return !(lhs==rhs);
+    }
+    public static bool operator !=(Vector3d lhs, Vector3 rhs)
+    {
+      return !(lhs==rhs);
     }
 
     public static Vector3d Lerp(Vector3d from, Vector3d to, double t)
