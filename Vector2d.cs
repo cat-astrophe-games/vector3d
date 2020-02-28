@@ -160,32 +160,10 @@ namespace UnityEngine {
         }
 
         public override string ToString() {
-            /*
-      string fmt = "({0:D1}, {1:D1})";
-      object[] objArray = new object[2];
-      int index1 = 0;
-      // ISSUE: variable of a boxed type
-      __Boxed<double> local1 = (ValueType) this.x;
-      objArray[index1] = (object) local1;
-      int index2 = 1;
-      // ISSUE: variable of a boxed type
-      __Boxed<double> local2 = (ValueType) this.y;
-      objArray[index2] = (object) local2;
-      */
-            return "not implemented";
+           return "(" + this.x + ", " + this.y + ")";
         }
 
         public string ToString(string format) {
-            /* TODO:
-      string fmt = "({0}, {1})";
-      object[] objArray = new object[2];
-      int index1 = 0;
-      string str1 = this.x.ToString(format);
-      objArray[index1] = (object) str1;
-      int index2 = 1;
-      string str2 = this.y.ToString(format);
-      objArray[index2] = (object) str2;
-      */
             return "not implemented";
         }
 

@@ -305,11 +305,14 @@ namespace UnityEngine {
             else
                 this = Vector3d.zero;
         }
-        // TODO : fix formatting
-        public override string ToString() {
-            return "(" + this.x + " - " + this.y + " - " + this.z + ")";
-        }
 
+        public override string ToString() {
+            return "(" + this.x + ", " + this.y + ", " + this.z + ")";
+        }
+        public string ToString(string format) {
+            return "not implemented";
+        }
+        
         public static double Dot(Vector3d lhs, Vector3d rhs) {
             return lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z;
         }
